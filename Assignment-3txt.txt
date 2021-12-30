@@ -116,7 +116,7 @@ public class Assignment3 {
 
 		 
 
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 
 		 
 
