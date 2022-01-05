@@ -5,7 +5,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 
-
+import static org.testng.Assert.assertEquals;
 
 import java.util.concurrent.TimeUnit;
 
@@ -25,7 +25,7 @@ public class Assignment5 {
 	
 	public WebDriver driver;
 	
-  @Test(groups= {"regression"})
+  @Test(groups= {"Smoke"})
   
   public void Test1() 
   {
@@ -59,6 +59,7 @@ public class Assignment5 {
 				String msg=a.getText();
 				System.out.println("Text on Asert is::"+msg);
 				a.accept();	
+				assertEquals(driver.getTitle(), "Zero - Pay Bills", "Test Failed");
 				driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/a[1]")).click();
 				
 				driver.findElement(By.xpath("//a[@id='logout_link']")).click();
@@ -89,6 +90,8 @@ public class Assignment5 {
 		
 		driver.findElement(By.xpath("//button[@id='btn_submit']")).click();
 		driver.findElement(By.cssSelector("#btn_submit")).click();
+		
+		assertEquals(driver.getTitle(), "Zero - Transfer Funds", "Test Failed");
 		driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/a[1]")).click();
 		
 		driver.findElement(By.xpath("//a[@id='logout_link']")).click();
@@ -111,6 +114,7 @@ public class Assignment5 {
 	driver.findElement(By.cssSelector("[type='password']")).sendKeys("password123");
 	driver.findElement(By.cssSelector("input#user_remember_me[name='user_remember_me']")).click();
 	driver.findElement(By.name("submit")).click();
+	assertEquals(driver.getTitle(), "Zero - Log in", "Test Failed");
 	System.out.println("incorrect password");
   }
   
@@ -130,6 +134,8 @@ public class Assignment5 {
 	driver.findElement(By.cssSelector("[type='password']")).sendKeys("password123");
 	driver.findElement(By.cssSelector("input#user_remember_me[name='user_remember_me']")).click();
 	driver.findElement(By.name("submit")).click();
+	assertEquals(driver.getTitle(), "Zero - Log in", "Test Failed");
+	
 	System.out.println("incorrect username");
   }
   
@@ -196,6 +202,7 @@ public class Assignment5 {
 	driver.findElement(By.cssSelector("[type='password']"));
 	driver.findElement(By.cssSelector("input#user_remember_me[name='user_remember_me']")).click();
 	driver.findElement(By.name("submit")).click();
+	assertEquals(driver.getTitle(), "Zero - Log in", "Test Failed");
 	System.out.println("Blank username and password");
   }
   
@@ -215,6 +222,8 @@ public class Assignment5 {
 		driver.findElement(By.cssSelector("i.icon-question-sign")).click();
 		driver.findElement(By.cssSelector("[type='password']")).sendKeys("password");
 		driver.findElement(By.cssSelector("input#user_remember_me[name='user_remember_me']")).click();
+		driver.findElement(By.name("submit")).click();
+		assertEquals(driver.getTitle(), "Zero - Account Summary", "Test Failed");
 		System.out.println("valid username and password");
   }
   @BeforeMethod
@@ -254,7 +263,7 @@ public class Assignment5 {
 		driver.quit();
   }
 
-  @BeforeSuite((alwaysRun= true)
+  @BeforeSuite(alwaysRun= true)
   public void beforeSuite() {
 	  System.out.println("Zero-Bank Positive and negative scenerios Begining");
   }
