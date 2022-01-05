@@ -254,7 +254,7 @@ public class Assignment5 {
 		driver.quit();
   }
 
-  @BeforeSuite
+  @BeforeSuite((alwaysRun= true)
   public void beforeSuite() {
 	  System.out.println("Zero-Bank Positive and negative scenerios Begining");
   }
