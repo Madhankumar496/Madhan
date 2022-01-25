@@ -29,7 +29,7 @@ Feature 1: Login functionality
 
   @smoke
   Scenario:  As a user I should be able to log into the application with only valid credentials
-       and should get error message when entered invalid credentials in order to validate login feature.
+       and should get error message when entered invalid credentials in order to validate login feature
     Given I am on login page
     When I enter user name as "admin" and password as "admin123" 
     And Click on login button
